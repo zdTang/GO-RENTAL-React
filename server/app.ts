@@ -2,6 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import { dbConnection } from "./config/dbConnect";
 
+import { startApolloServer } from "./apollo/apolloServer"; // Adjust the path as necessary
+import { Express } from "express-serve-static-core";
+
 // this tell the system to treat .env.loca as .env
 dotenv.config({ path: "config/.env.local" });
 const app = express();
@@ -18,7 +21,8 @@ app.get("/", (req, res) => {
 //here the .env will be treaded as '.env.local'
 const PORT = process.env.PORT || 4000;
 
-function startServer() {
+async function startServer() {
+  await startApolloServer(app);
   try {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
