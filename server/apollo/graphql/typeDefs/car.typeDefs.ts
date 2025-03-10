@@ -4,7 +4,7 @@ export const carTypeDefs = gql`
     url: String
     public_id: String
   }
-  type Cart {
+  type Car {
     id: ID!
     name: String!
     description: String!
@@ -23,7 +23,30 @@ export const carTypeDefs = gql`
     createdAt: String!
     updatedAt: String!
   }
+
+  input CarInput {
+    name: String!
+    description: String!
+    status: String
+    rentPerDay: Float!
+    address: String!
+    images: [String]
+    brand: String!
+    year: Int!
+    transmission: String!
+    milleage: Int!
+    power: Int!
+    seats: Int!
+    doors: Int!
+    fuelType: String!
+    category: String!
+  }
+
   type Query {
     getAllCars: String
+  }
+
+  type Mutation {
+    createCar(carInput: CarInput!): Car
   }
 `;
