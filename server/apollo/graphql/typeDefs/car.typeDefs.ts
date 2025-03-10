@@ -23,6 +23,7 @@ export const carTypeDefs = gql`
     createdAt: String!
     updatedAt: String!
   }
-    type Query {}
-    type Mutation{}
+  type Query {
+    getAllCars: String
+  }
 `;
