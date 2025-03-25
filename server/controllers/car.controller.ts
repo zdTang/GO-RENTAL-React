@@ -48,3 +48,21 @@ export const updateCar = async (carId: string, carInput: CarInput) => {
   await car.set(carInput).save();
   return true;
 };
+
+export const deleteCar = async (carId: string) => {
+  if (!mongoose.Types.ObjectId.isValid(carId)) {
+    throw new GraphQLError("Invalid Car ID format", {
+      extensions: { code: "BAD_USER_INPUT" },
+    });
+  }
+
+  const car = await Car.findById(carId);
+  if (!car) {
+    throw new GraphQLError("Car not found", {
+      extensions: { code: "NOT_FOUND" },
+    });
+  }
+  // update the car
+  await car?.deleteOne();
+  return true;
+};
