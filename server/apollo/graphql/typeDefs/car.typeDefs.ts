@@ -43,7 +43,7 @@ export const carTypeDefs = gql`
   }
 
   type Query {
-    getAllCars: String
+    getAllCars: [Car]
   }
 
   type Mutation {
