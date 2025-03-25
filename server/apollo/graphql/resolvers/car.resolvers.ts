@@ -1,4 +1,4 @@
-import { getCarById } from "./../../../controllers/car.controller";
+import { getCarById, updateCar } from "./../../../controllers/car.controller";
 // This is backend Apollo server code.
 import { getAllCars, createCar } from "../../../controllers/car.controller";
 import { CarInput } from "../../../types/car.types";
@@ -13,5 +13,9 @@ export const carResolvers = {
   Mutation: {
     createCar: async (_: any, { carInput }: { carInput: CarInput }) =>
       await createCar(carInput),
+    updateCar: async (
+      _: any,
+      { carId, carInput }: { carId: string; carInput: CarInput }
+    ) => await updateCar(carId, carInput),
   },
 };
