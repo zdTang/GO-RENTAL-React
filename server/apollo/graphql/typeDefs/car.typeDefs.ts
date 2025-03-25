@@ -22,6 +22,7 @@ export const carTypeDefs = gql`
     doors: Int!
     images: [CartImages]
     category: String!
+    ratings: CarRatings
     createdAt: String!
     updatedAt: String!
   }
@@ -42,6 +43,10 @@ export const carTypeDefs = gql`
     doors: Int!
     fuelType: String!
     category: String!
+  }
+  type CarRatings {
+    value: Float
+    count: Int
   }
 
   type Query {
