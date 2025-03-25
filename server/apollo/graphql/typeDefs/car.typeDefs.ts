@@ -1,4 +1,6 @@
 import { gql } from "graphql-tag";
+
+// These are grqphql type definitions for car
 export const carTypeDefs = gql`
   type CartImages {
     url: String
@@ -44,6 +46,7 @@ export const carTypeDefs = gql`
 
   type Query {
     getAllCars: [Car]
+    getCarById(carId: ID!): Car
   }
 
   type Mutation {
