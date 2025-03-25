@@ -1,0 +1,18 @@
+{
+  "carInput": {
+    "name": "BMW 4 Series",
+    "description": "The BMW 3 Series is a renowned compact executive car that has been a benchmark for driving enthusiasts. It offers a perfect blend of performance, luxury, and technology. The 3 Series is available in various trims, including the high-performance M3, catering to different driving preferences. With its rear-wheel-drive layout, sharp steering, and potent engine options, the 3 Series delivers an exhilarating driving experience. Inside, the cabin is well-appointed with high-quality materials and cutting-edge technology, providing both comfort and a premium feel.",
+    "status": "Active",
+    "rentPerDay": 80,
+    "address": "128-94 Sussex St, Buffalo, NY 14215, USA",
+    "year": 2015,
+    "power": 2800,
+    "milleage": 45000,
+    "brand": "BMW",
+    "transmission": "Automatic",
+    "fuelType": "Petrol",
+    "seats": 4,
+    "doors": 4,
+    "category": "Convertible"
+  }
+}
