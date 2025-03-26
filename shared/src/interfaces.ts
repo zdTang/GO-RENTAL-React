@@ -1,1 +1,1 @@
-export const CarStatus=["Draft","Active"];
+export const CarsStatus=["Draft","Active"];

@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
+import { CarsStatus } from "../../shared/dist/interfaces";
 const carSchema = new mongoose.Schema(
   {
     name: { type: String, required: [true, "Name is required"] },
     description: { type: String, required: [true, "Description is required"] },
-    status: { type: String, required: [true, "Draft"] },
+    status: { type: String, required: [true, "Draft"], enum: {
+      values: CarsStatus,
+      message: "Status is either: Draft or Active"
+    }},
     rentPerDay: { type: Number, required: [true, "Rent per day is required"] },
     address: { type: String, required: [true, "Address is required"] },
     year: { type: Number, required: [true, "Year is required"] },
