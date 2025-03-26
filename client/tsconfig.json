@@ -1,7 +1,15 @@
 {
-  "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": "./src", // crucial:  Sets the base directory for non-absolute module names.
+    "paths": {
+      "@/*": ["./*"] // crucial: Maps "@/*" to files/folders within the 'baseUrl' (src).
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "files": ["index.d.ts"]
 }
