@@ -19,6 +19,31 @@ export const CarTransmission=["Automatic","Manual"];
 export const CarSeats=[2,4,5,7,9,12];
 export const CarDoors=[2,3,4,5];
 
+export interface ICar{
+  id:string;
+  name:string;
+  description:string;
+  status: "Draft" | "Active";
+  rentPerDay:number;
+  address:string;
+  images: [{ url: string, public_id: string }];
+  brand: "Audi" | "BMW" | "Chevrolet" | "Ford" | "Honda" | "Hyundai" | "Mercedes Benz" | "Nissan" | "Toyota" | "Volkswagen" | "Volvo";
+  year:number;
+  transmission: "Automatic" | "Manual";
+  doors: 2 | 3 | 4 | 5;
+  fuelType: "Gasoline" | "Diesel" | "Electric" | "Hybrid";
+  category: "Sedan" | "Coupe" | "SUV" | "Truck" | "Van" | "Wagon";
+  ratings:{
+    value:number;
+    count:number
+  };
+  power:number;
+  milleage:number;
+  seats: 2 | 4 | 5 | 7 | 9 | 12;
+  createdAt:string;
+  updatedAt:string;
+  reviews: string[];
+}
 
 // This is a interface
 /* 

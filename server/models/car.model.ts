@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { CarsStatus,CarBrand,CarTransmission,CarSeats,CarDoors,CarFuelType,CarCategories} from "../../shared/dist/interfaces";
+import { CarsStatus,CarBrand,CarTransmission,CarSeats,CarDoors,CarFuelType,CarCategories, ICar } from "../../shared/dist/interfaces";
 
 // These a mongoose schema for car, not belongs to graphql or apollo
 const carSchema = new mongoose.Schema(
@@ -75,5 +75,5 @@ carSchema.virtual("ratings").get(function () {
   };
 });
 
-const Car = mongoose.model("Car", carSchema);
+const Car = mongoose.model<ICar>("Car", carSchema);
 export default Car;
