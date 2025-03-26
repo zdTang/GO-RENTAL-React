@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import { CarsStatus,CarBrand,CarTransmission,CarSeats,CarDoors,CarFuelType,CarCategories, ICar } from "../../shared/dist/interfaces";
+import { CarsStatus,CarBrand,CarTransmission,CarSeats,CarDoors,CarFuelType,CarCategories,ICar} from "go-rental-shared";
+
 
 // These a mongoose schema for car, not belongs to graphql or apollo
 const carSchema = new mongoose.Schema(
