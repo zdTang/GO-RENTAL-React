@@ -1,15 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router";
 import "./App.css";
-import { Button } from "./components/ui/button";
-import { Checkbox } from "./components/ui/checkbox";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Home from "./components/Home";
 function App() {
   return (
     <>
-      <div className="container mx-auto">
-        <h1 className="text-3xl font-bold ">Hello world!</h1>
-        <h2 className="text-blue-600">Mike</h2>
-        <Button variant="outline">Button</Button>
-        <Checkbox />
-      </div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/car/:id" element={<CarDetails />} /> */}
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
