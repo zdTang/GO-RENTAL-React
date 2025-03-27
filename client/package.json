@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.5",
     "@radix-ui/react-avatar": "^1.1.3",
     "@radix-ui/react-checkbox": "^1.1.4",
     "@radix-ui/react-dialog": "^1.1.6",
@@ -19,6 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "go-rental-client": "file:",
+    "graphql": "^16.10.0",
     "lucide-react": "^0.484.0",
     "my-app": "file:",
     "react": "^19.0.0",
