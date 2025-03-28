@@ -21,31 +21,7 @@ const CarDetails = () => {
   console.log("car id", params.id);
   console.log("Car Details Data", data);
 
-  const demoCar = {
-    id: "sampleCarId",
-    address: "123 Main St, Anytown, USA",
-    images: ["image1.jpg", "image2.jpg"],
-    name: "Sample Car",
-    rentPerDay: 50,
-    ratings: {
-      value: 4.5,
-      count: 10,
-    },
-    description: "This is a sample car description.",
-    reviews: [
-      {
-        id: "review1",
-        content: "Great car!",
-        rating: 5,
-      },
-      {
-        id: "review2",
-        content: "Good value for money.",
-        rating: 4,
-      },
-    ],
-  };
-  const car = data?.getCarById ?? demoCar;
+  const car = data?.getCarById;
 
   return (
     <div className="container">
@@ -57,31 +33,31 @@ const CarDetails = () => {
                 <CardTitle className="px-8 mb-5 text-xl">
                   <Badge variant="outline" className="flex py-2 text-sm">
                     <MapPin className="h-4 w-4 mr-2" />
-                    <p>{car.address}</p>
+                    <p>{car?.address}</p>
                   </Badge>
                 </CardTitle>
                 <div className="text-sm text-muted-foreground">
-                  <CarImageSlider />
+                  <CarImageSlider images={car?.images} />
                   <div className="px-8 mt-5">
-                    <h1 className="text-3xl font-bold">{car.name}</h1>
+                    <h1 className="text-3xl font-bold">{car?.name}</h1>
 
                     <p className="font-bold text-lg pt-2">
-                      <span className="text-xl">${car.rentPerDay}</span> / Day
+                      <span className="text-xl">${car?.rentPerDay}</span> / Day
                     </p>
 
                     <div className="flex items-center my-5">
                       {/* Star Rating Component */}
                       <p className="ms-2 text-sm font-bold text-gray-900 dark:text-white">
-                        {car.ratings.value}
+                        {car?.ratings?.value}
                       </p>
                       <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
                       <p className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">
-                        {car.ratings.count} reviews
+                        {car?.ratings?.count} reviews
                       </p>
                     </div>
 
                     <DropdownMenuSeparator />
-                    <p className="text-lg">{car.description}</p>
+                    <p className="text-lg">{car?.description}</p>
                     <DropdownMenuSeparator />
                   </div>
                 </div>
