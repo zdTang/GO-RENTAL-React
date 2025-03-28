@@ -1,8 +1,34 @@
 import { Card, CardHeader, CardTitle } from "../ui/card";
-import { CarFront } from "lucide-react";
+import {
+  Type,
+  Fuel,
+  Cog,
+  BatteryFull,
+  CalendarDays,
+  CarFront,
+  DoorClosed,
+  Milestone,
+  RockingChair,
+} from "lucide-react";
 import { Button } from "../ui/button";
+import { ICar } from "go-rental-shared";
+interface Props {
+  car: ICar;
+}
 
-const CarFeatures = () => {
+const CarFeatures = ({ car }: Props) => {
+  const features = [
+    { name: car?.brand, icon: CarFront },
+    { name: car?.category, icon: Type },
+    { name: car?.fuelType, icon: Fuel },
+    { name: car?.transmission, icon: Cog },
+
+    { name: car?.power, icon: BatteryFull },
+    { name: car?.year, icon: CalendarDays },
+    { name: `${car?.milleage} KM`, icon: Milestone },
+    { name: `${car?.doors} Doors`, icon: DoorClosed },
+    { name: `${car?.seats} Seats`, icon: RockingChair },
+  ];
   return (
     <Card>
       <CardHeader className="bg-muted/25">
@@ -13,16 +39,21 @@ const CarFeatures = () => {
           <div className="text-sm text-muted-foreground">
             <div className="px-8">
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-start">
-                <div className="flex items-center space-x-2 text-xl">
-                  <Button
-                    variant="secondary"
-                    size="icon"
-                    className="rounded-full"
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center space-x-2 text-xl"
                   >
-                    <CarFront className="h-6 w-6" />
-                  </Button>
-                  <p>Sedan</p>
-                </div>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="rounded-full"
+                    >
+                      <feature.icon className="h-6 w-6" />
+                    </Button>
+                    <p>{feature.name}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

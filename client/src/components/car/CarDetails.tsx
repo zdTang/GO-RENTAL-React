@@ -89,7 +89,7 @@ const CarDetails = () => {
             </CardHeader>
           </Card>
 
-          <CarFeatures />
+          <CarFeatures car={car} />
           <CarFaqs />
 
           <CarReviews />
