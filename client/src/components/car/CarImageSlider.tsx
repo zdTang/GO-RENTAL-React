@@ -18,6 +18,34 @@ export function CarImageSlider({ images }: Props) {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
+
+  const renderedImages =
+    images?.length === 0 ? (
+      <div className="h-full w-full flex justify-center items-center">
+        <Card>
+          <img
+            src="/images/default_car.png"
+            alt="Car"
+            className="object-cover rounded-lg"
+          />
+        </Card>
+      </div>
+    ) : (
+      images?.map((image, index) => (
+        <CarouselItem key={index}>
+          <div className="h-full w-full flex justify-center items-center">
+            <Card>
+              <img
+                key={image.public_id}
+                src={image?.url}
+                alt="Car"
+                className="object-cover rounded-lg"
+              />
+            </Card>
+          </div>
+        </CarouselItem>
+      ))
+    );
   console.log("images", images);
   return (
     <div className="w-full px-4">
@@ -27,22 +55,7 @@ export function CarImageSlider({ images }: Props) {
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
-        <CarouselContent>
-          {images?.map((image, index) => (
-            <CarouselItem key={index}>
-              <div className="h-full w-full flex justify-center items-center">
-                <Card>
-                  <img
-                    key={image.public_id}
-                    src={image?.url}
-                    alt="Car"
-                    className="object-cover rounded-lg"
-                  />
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+        <CarouselContent>{renderedImages}</CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
