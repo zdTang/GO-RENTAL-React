@@ -3,8 +3,12 @@ import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Link } from "react-router-dom";
 import { CarFront, CircleDot, MoveRight } from "lucide-react";
+import { ICar } from "go-rental-shared";
+type Props = {
+  car: ICar;
+};
 
-const CardItem = ({ car }: any) => {
+const CardItem = ({ car }: Props) => {
   return (
     <Card className="m-2 my-4">
       <div className="flex items-center bg-white rounded-lg">

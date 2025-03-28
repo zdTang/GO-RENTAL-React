@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "go-rental-client": "file:",
+    "go-rental-shared": "file:../shared",
     "graphql": "^16.10.0",
     "lucide-react": "^0.484.0",
     "my-app": "file:",

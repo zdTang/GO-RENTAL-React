@@ -3,8 +3,9 @@ import CardItem from "./CardItem";
 import { Link } from "react-router-dom";
 import { ArrowLeftRight } from "lucide-react";
 import { Button } from "../ui/button";
+import { ICar } from "go-rental-shared";
 type Props = {
-  cars: any;
+  cars: ICar[];
   loading: boolean;
 };
 
@@ -30,7 +31,7 @@ const ListHomeCars = ({ cars, loading }: Props) => {
         </div>
       </CardHeader>
       <div className="text-sm text-muted-foreground w-full max-w-md">
-        {cars?.map((car: any) => (
+        {cars?.map((car: ICar) => (
           <CardItem car={car} key={car.id} />
         ))}
       </div>
