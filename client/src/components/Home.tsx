@@ -13,7 +13,7 @@ const Home = () => {
         {/* <Filters /> */}
       </div>
       <div className="grid auto-rows-max items-start gap-4 md:gap-8 md:col-span-4 lg:col-span-4">
-        <ListHomeCars />
+        <ListHomeCars cars={data?.getAllCars} loading={loading} />
       </div>
       <div className="md:col-span-6 lg:col-span-4 flex flex-col">
         <div className="flex items-center justify-center h-screen"></div>

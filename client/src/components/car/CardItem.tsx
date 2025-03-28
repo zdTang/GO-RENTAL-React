@@ -4,44 +4,50 @@ import { Badge } from "../ui/badge";
 import { Link } from "react-router-dom";
 import { CarFront, CircleDot, MoveRight } from "lucide-react";
 
-const CardItem = () => {
+const CardItem = ({ car }: any) => {
   return (
     <Card className="m-2 my-4">
       <div className="flex items-center bg-white rounded-lg">
         <div className="w-48 h-48">
-          <CarFront color="#e3e3e3" className="h-full w-full" />
+          {car?.images?.length > 0 ? (
+            <img
+              src={car?.images[0].url}
+              alt={car?.name}
+              className="object-cover w-full h-full rounded-lg"
+            />
+          ) : (
+            <CarFront color="#e3e3e3" className="h-full w-full" />
+          )}
         </div>
         <div className="px-3 flex-1">
-          <Link to="/car/sample-id">
-            <h3 className="text-2xl font-bold text-gray-900">
-              Sample Car Name
-            </h3>
+          <Link to="/car/${car?.id}">
+            <h3 className="text-2xl font-bold text-gray-900">{car.name}</h3>
           </Link>
           <div className="mt-1 mb-3">
             <Badge variant="outline" className="text-gray-600">
               <CircleDot className="h-2 w-2 me-1" />
-              Category
+              {car?.category}
             </Badge>
             <Badge variant="outline" className="ms-2 text-gray-600">
-              <CircleDot className="h-2 w-2 me-1" /> Fuel
+              <CircleDot className="h-2 w-2 me-1" /> {car?.fuelType}
             </Badge>
             <Badge variant="outline" className="ms-2 text-gray-600">
-              <CircleDot className="h-2 w-2 me-1" /> Transmission
+              <CircleDot className="h-2 w-2 me-1" /> {car?.transmission}
             </Badge>
           </div>
           <div className="flex items-center my-2">
             {/* Star Ratings Component */}
             <p className="ms-2 text-sm font-bold text-gray-900 dark:text-white">
-              4.5
+              {car?.ratings?.value}
             </p>
             <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
             <p className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">
-              100 reviews
+              {car?.ratings.count} reviews
             </p>
           </div>
           <div className="flex items-center justify-between mt-6">
             <span className="text-xl font-bold text-gray-900">
-              $100{" "}
+              $ {car?.rentPerDay}{" "}
               <p className="text-xs font-thin text-gray-700 ms-1">
                 rent per day
               </p>

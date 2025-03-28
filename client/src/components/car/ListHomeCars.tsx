@@ -3,8 +3,17 @@ import CardItem from "./CardItem";
 import { Link } from "react-router-dom";
 import { ArrowLeftRight } from "lucide-react";
 import { Button } from "../ui/button";
+type Props = {
+  cars: any;
+  loading: boolean;
+};
 
-const ListHomeCars = () => {
+const ListHomeCars = ({ cars, loading }: Props) => {
+  console.log("loading is: ", loading);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       <CardHeader className="p-0">
@@ -21,7 +30,9 @@ const ListHomeCars = () => {
         </div>
       </CardHeader>
       <div className="text-sm text-muted-foreground w-full max-w-md">
-        <CardItem />
+        {cars?.map((car: any) => (
+          <CardItem car={car} key={car.id} />
+        ))}
       </div>
     </>
   );
