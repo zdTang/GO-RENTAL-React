@@ -24,7 +24,7 @@ const CardItem = ({ car }: Props) => {
           )}
         </div>
         <div className="px-3 flex-1">
-          <Link to="/car/${car?.id}">
+          <Link to={`/car/${car?.id}`}>
             <h3 className="text-2xl font-bold text-gray-900">{car.name}</h3>
           </Link>
           <div className="mt-1 mb-3">
