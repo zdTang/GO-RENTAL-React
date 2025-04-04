@@ -8,11 +8,12 @@ type Props = {
   cars: ICar[];
   loading: boolean;
 };
+import LoadingSpinner from "../layout/LoadingSpinner";
 
 const ListHomeCars = ({ cars, loading }: Props) => {
   console.log("loading is: ", loading);
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingSpinner size={60} />;
   }
 
   return (

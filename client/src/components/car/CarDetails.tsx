@@ -12,16 +12,18 @@ import { useQuery } from "@apollo/client";
 import { GET_CAR_BY_ID } from "../../graphql/queries/car.queries";
 import { useParams } from "react-router";
 import StarRatings from "react-star-ratings";
+import LoadingSpinner from "../layout/LoadingSpinner";
 
 const CarDetails = () => {
   const params = useParams();
-  const { loading, error, data } = useQuery(GET_CAR_BY_ID, {
+  const { loading, data } = useQuery(GET_CAR_BY_ID, {
     variables: { carId: params.id },
   });
   console.log("car id", params.id);
   console.log("Car Details Data", data);
 
   const car = data?.getCarById;
+  if (loading) return <LoadingSpinner size={60} />;
 
   return (
     <div className="container">
