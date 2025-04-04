@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge";
 import { Link } from "react-router-dom";
 import { CarFront, CircleDot, MoveRight } from "lucide-react";
 import { ICar } from "go-rental-shared";
+import StarRatings from "react-star-ratings";
 type Props = {
   car: ICar;
 };
@@ -40,7 +41,15 @@ const CardItem = ({ car }: Props) => {
             </Badge>
           </div>
           <div className="flex items-center my-2">
-            {/* Star Ratings Component */}
+            <StarRatings
+              rating={car?.ratings?.value}
+              starRatedColor="#FFD700"
+              starEmptyColor="#D3D3D3"
+              starDimension="15px"
+              starSpacing="1px"
+              numberOfStars={5}
+              name="rating"
+            />
             <p className="ms-2 text-sm font-bold text-gray-900 dark:text-white">
               {car?.ratings?.value}
             </p>

@@ -10,8 +10,8 @@ import CarReviews from "../review/CarReviews";
 import CarFeatures from "./CarFeatures";
 import { useQuery } from "@apollo/client";
 import { GET_CAR_BY_ID } from "../../graphql/queries/car.queries";
-
 import { useParams } from "react-router";
+import StarRatings from "react-star-ratings";
 
 const CarDetails = () => {
   const params = useParams();
@@ -46,7 +46,16 @@ const CarDetails = () => {
                     </p>
 
                     <div className="flex items-center my-5">
-                      {/* Star Rating Component */}
+                      <StarRatings
+                        rating={car?.ratings?.value}
+                        starRatedColor="#FFD700"
+                        starEmptyColor="#D3D3D3"
+                        starDimension="20px"
+                        starSpacing="2px"
+                        numberOfStars={5}
+                        name="rating"
+                      />
+
                       <p className="ms-2 text-sm font-bold text-gray-900 dark:text-white">
                         {car?.ratings?.value}
                       </p>
